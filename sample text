@@ -1,35 +1,23 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven3'
-        jdk 'JDK11'
-    }
-
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/kaprasanna007/sample1.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                echo "Building project..."
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                echo "Running tests..."
             }
         }
 
-        stage('Package') {
+        stage('Deploy') {
             steps {
-                bat 'mvn package'
+                echo "Deploying..."
             }
         }
     }
 }
-

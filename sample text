@@ -1,17 +1,23 @@
- pipeline {
-        agent any
-        tools {
-            maven 'M3.9.11' // Replace 'M3' with your configured Maven tool name
-            jdk 'JDK 21' // Replace 'JDK8' with your configured JDK tool name
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building project..."
+            }
         }
-        stages {
-            stage('Build') {
-                steps {
-                    withMaven(maven: 'M.9.11') {
-                        sh 'mvn clean install' // Execute Maven goals
-                    }
-                }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying..."
             }
         }
     }
-
+}

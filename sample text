@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/your-java-repo.git'
+                git branch: 'main', url: 'https://github.com/kaprasanna007/sample1.git'
             }
         }
 
@@ -32,3 +32,4 @@ pipeline {
         }
     }
 }
+

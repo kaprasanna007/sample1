@@ -1,23 +1,16 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo "Building project..."
-            }
+ pipeline {
+        agent any
+        tools {
+            maven 'M3' // Replace 'M3' with your configured Maven tool name
+            jdk 'JDK8' // Replace 'JDK8' with your configured JDK tool name
         }
-
-        stage('Test') {
-            steps {
-                echo "Running tests..."
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo "Deploying..."
+        stages {
+            stage('Build') {
+                steps {
+                    withMaven(maven: 'M3') {
+                        sh 'mvn clean install' // Execute Maven goals
+                    }
+                }
             }
         }
     }
-}

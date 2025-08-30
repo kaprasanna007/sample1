@@ -36,5 +36,4 @@ public class main {
         System.out.printf("the price of ticket %.2f",price);
 
     }
-}
-
+    }
